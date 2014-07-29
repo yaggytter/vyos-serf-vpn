@@ -1,0 +1,26 @@
+{
+  "node_name" : "INSTANCEID",
+  "start_join":[
+    "JOINIP"
+  ],
+  "profile": "wan",
+  "advertise": "GLOBALIP",
+  "encrypt_key": "SERFKEY",
+  "tags": {
+  	"role": "ROLE",
+        "instance-id": "INSTANCEID",
+        "hostname": "HOSTNAME",
+        "dispname": "DISPNAME",
+        "globalip": "GLOBALIP",
+        "localip": "LOCALIP",
+        "localnetwork": "LOCALNET",
+        "presharedkey": "PREKEY",
+        "vpnstatus": "join",
+        "service": "common"
+  },
+  "event_handlers": [
+      "/opt/serf/bin/meshvpn.sh >> /opt/serf/log/meshvpn.log 2>&1",
+      "query=/opt/serf/bin/meshvpn.sh 2>&1 | grep VPNSTATUS"
+  ]
+}
+

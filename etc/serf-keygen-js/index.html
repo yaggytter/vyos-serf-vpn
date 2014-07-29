@@ -1,0 +1,63 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="serf keygen? JavaScript">
+<title>serf keygen? JavaScript</title>
+</head>
+
+<body onload="genkey()">
+
+<h1 id="title">
+serf keygen? JavaScript
+</h1>
+
+please choose your favorite strings.
+<script type="text/javascript" src="mt.js" charset="us-ascii"></script>
+<script type="text/javascript" src="base64.js" charset="us-ascii"></script>
+<script type="text/javascript">
+
+function genkey()
+{
+	var mt = new MersenneTwister();
+
+	var x, y, z, s, base, html;
+
+	html = "<TABLE border=1>";
+
+	for (y = 0; y < 20; y++) {
+		html += "<TR>";
+		for (x = 0; x < 5; x++) {
+			html += "<TD>";
+			s = "";
+			for (z = 0; z < 16; z++) {
+				var int = mt.nextInt(33, 127);
+				s += String.fromCharCode(int);
+			}
+
+			base = base64encode(s);
+			console.debug(s);
+			console.debug(base);
+
+			html += base
+			html += "</TD>";
+		}
+		html += "</TR>";
+	}
+
+	html += "</TABLE>";
+
+	document.getElementById("keys").innerHTML= html;
+	console.debug(html);
+};
+
+</script>
+
+<div id='keys'>
+</div>
+
+</body>
+
+</html>
