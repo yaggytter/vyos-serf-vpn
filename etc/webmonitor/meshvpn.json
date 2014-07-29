@@ -1,0 +1,22 @@
+{
+  "nodes":[
+{"name":"vyosserf1 172.31.22.106", "group":1, "sx":30, "sy":30}
+,
+{"name":"vyosserf3 10.13.0.147", "group":2, "sx":30, "sy":60}
+,
+{"name":"vyosserf4 10.14.0.231", "group":3, "sx":30, "sy":90}
+  ],
+  "links":[
+{"source":2,"target":1,"value":211}
+,
+{"source":1,"target":2,"value":211}
+,
+{"source":2,"target":0,"value":169}
+,
+{"source":0,"target":2,"value":169}
+,
+{"source":1,"target":0,"value":85}
+,
+{"source":0,"target":1,"value":85}
+  ]
+}

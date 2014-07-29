@@ -1,0 +1,47 @@
+
+# VPN settings
+# set interfaces vti vti%%NO%% address '169.254.%%NO%%.%%LINKLOCALMY%%/30'
+set interfaces vti vti%%NO%% description 'VPC tunnel %%NO%% to %%DISPNAME%% by SerfVPN'
+set interfaces vti vti%%NO%% mtu '1436'
+
+# set protocols static route %%DESTIP%% next-hop 169.254.%%NO%%.%%LINKLOCALDEST%% distance '10'
+set protocols static interface-route %%DESTIP%% next-hop-interface vti%%NO%%
+
+set vpn ipsec esp-group SERFVPN compression 'disable'
+set vpn ipsec esp-group SERFVPN lifetime '3600'
+set vpn ipsec esp-group SERFVPN mode 'tunnel'
+set vpn ipsec esp-group SERFVPN pfs 'enable'
+set vpn ipsec esp-group SERFVPN proposal 1 encryption 'aes128'
+set vpn ipsec esp-group SERFVPN proposal 1 hash 'sha1'
+set vpn ipsec ike-group SERFVPN dead-peer-detection action 'restart'
+set vpn ipsec ike-group SERFVPN dead-peer-detection interval '15'
+set vpn ipsec ike-group SERFVPN dead-peer-detection timeout '30'
+set vpn ipsec ike-group SERFVPN lifetime '28800'
+set vpn ipsec ike-group SERFVPN proposal 1 dh-group '2'
+set vpn ipsec ike-group SERFVPN proposal 1 encryption 'aes128'
+set vpn ipsec ike-group SERFVPN proposal 1 hash 'sha1'
+
+set vpn ipsec site-to-site peer %%PEERIP%% authentication id '%%GLOBALIP%%'
+set vpn ipsec site-to-site peer %%PEERIP%% authentication mode 'pre-shared-secret'
+set vpn ipsec site-to-site peer %%PEERIP%% authentication pre-shared-secret '%%PREKEY%%'
+set vpn ipsec site-to-site peer %%PEERIP%% authentication remote-id '%%PEERIP%%'
+set vpn ipsec site-to-site peer %%PEERIP%% connection-type 'initiate'
+set vpn ipsec site-to-site peer %%PEERIP%% description 'VPC tunnel %%NO%% to %%DISPNAME%% by SerfVPN'
+set vpn ipsec site-to-site peer %%PEERIP%% ike-group 'SERFVPN'
+set vpn ipsec site-to-site peer %%PEERIP%% local-address '%%LOCALIP%%'
+set vpn ipsec site-to-site peer %%PEERIP%% vti bind 'vti%%NO%%'
+set vpn ipsec site-to-site peer %%PEERIP%% vti esp-group 'SERFVPN'
+
+# default settings
+set policy route LANTCPMSS rule 10 destination address '0.0.0.0/0'
+set policy route LANTCPMSS rule 10 protocol 'tcp'
+set policy route LANTCPMSS rule 10 set tcp-mss '1387'
+set policy route LANTCPMSS rule 10 tcp flags 'SYN,!ACK,!FIN,!RST'
+
+set system time-zone 'Asia/Tokyo'
+
+set vpn ipsec ipsec-interfaces interface 'eth0'
+set interfaces ethernet eth0 policy route 'LANTCPMSS'
+
+commit
+
