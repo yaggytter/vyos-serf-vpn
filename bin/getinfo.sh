@@ -1,10 +1,10 @@
 #!/bin/vbash
 ## get vpn variables
 
-export SERFBIN=/opt/serf/bin/serf
+export SERFBIN=/usr/local/bin/serf
 
 DEBUG="$2"
-BASEDIR=/opt/serf/bin
+BASEDIR=/opt/vyos-serf-vpn/bin
 cd ${BASEDIR}
 
 source /opt/vyatta/etc/functions/script-template

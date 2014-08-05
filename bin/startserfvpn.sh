@@ -2,11 +2,11 @@
 # create serf configuration file and start serf agent 
 
 ### BAD CODE
-cd /opt/serf/bin
+cd /opt/vyos-serf-vpn/bin
 
 sleep 30
 
-CONFFILE=/opt/serf/etc/meshvpn.conf
+CONFFILE=/opt/vyos-serf-vpn/etc/meshvpn.conf
 
 source /opt/vyatta/etc/functions/script-template
 
@@ -21,7 +21,7 @@ sleep 20
 
 SERFCMD="${SERFBIN} agent -config-file=${CONFFILE}"
 
-CONFFILE_TEMPLATE=/opt/serf/etc/meshvpn.conf.template
+CONFFILE_TEMPLATE=/opt/vyos-serf-vpn/etc/meshvpn.conf.template
 echo ${PREKEY}
 echo ${SERFKEY}
 echo ${ROLE}

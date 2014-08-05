@@ -19,8 +19,8 @@
         "service": "common"
   },
   "event_handlers": [
-      "/opt/serf/bin/meshvpn.sh >> /opt/serf/log/meshvpn.log 2>&1",
-      "query=/opt/serf/bin/meshvpn.sh 2>&1 | grep VPNSTATUS"
+      "/opt/vyos-serf-vpn/bin/meshvpn.sh >> /opt/vyos-serf-vpn/log/meshvpn.log 2>&1",
+      "query=/opt/vyos-serf-vpn/bin/meshvpn.sh 2>&1 | grep VPNSTATUS"
   ]
 }
 

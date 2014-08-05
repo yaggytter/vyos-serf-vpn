@@ -2,8 +2,8 @@
 # serf event handler
 # configuration fullmesh vpn
 
-IPSECCMD_TEMPLATE=/opt/serf/etc/ipsec.conf.template
-IPSECCMD=/opt/serf/etc/ipsec.conf
+IPSECCMD_TEMPLATE=/opt/vyos-serf-vpn/etc/ipsec.conf.template
+IPSECCMD=/opt/vyos-serf-vpn/etc/ipsec.conf
 
 source ./getinfo.sh
 

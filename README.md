@@ -19,10 +19,13 @@ DISPNAME,VyOSSerf1-Tokyo
 LOCALNET,10.15.0.0/16
 </pre>
 
-copy all scripts to /opt/serf
+copy all scripts to /opt/vyos-serf-vpn
+<pre>
+vyos$ cd /opt ; git clone https://github.com/yaggytter/vyos-serf-vpn.git
+</pre>
 and
 <pre>
-vyos$ cd /opt/serf/bin ; ./startserfvpn.sh 
+vyos$ cd /opt/vyos-serf-vpn/bin ; ./startserfvpn.sh 
 </pre>
 
 build full mesh IPSec vpn automatically across serf cluster
