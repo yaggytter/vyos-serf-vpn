@@ -1,9 +1,9 @@
 #!/bin/vbash
 # create serf configuration file and start serf agent 
 
-### BAD CODE
-cd /opt/vyos-serf-vpn/bin
+source /opt/vyos-serf-vpn/bin/commonvars.sh
 
+### BAD CODE
 sleep 30
 
 CONFFILE=/opt/vyos-serf-vpn/etc/meshvpn.conf

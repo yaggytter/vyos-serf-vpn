@@ -2,10 +2,7 @@
 # serf event handler
 # configuration fullmesh vpn
 
-IPSECCMD_TEMPLATE=/opt/vyos-serf-vpn/etc/ipsec.conf.template
-IPSECCMD=/opt/vyos-serf-vpn/etc/ipsec.conf
-
-source ./getinfo.sh
+source /opt/vyos-serf-vpn/bin/commonvars.sh
 
 gettag()
 {
@@ -165,6 +162,21 @@ concheck()
 
 }
 
+IPSECCMD_TEMPLATE=/opt/vyos-serf-vpn/etc/ipsec.conf.template
+IPSECCMD=/opt/vyos-serf-vpn/etc/ipsec.conf
+
+case ${SERF_EVENT} in
+"query")
+  if [ "${SERF_QUERY_NAME}" = "concheck" ]
+  then
+    concheck
+  fi
+  exit
+;;
+esac
+
+source ./getinfo.sh
+
 while read line
 do
 
@@ -178,12 +190,6 @@ do
     "member-leave" | "member-failed")
       echo "serf leave or failed"
       leave "${line}"
-;;
-    "query")
-      if [ "${SERF_QUERY_NAME}" = "concheck" ]
-      then
-        concheck
-      fi
 ;;
     esac
 
