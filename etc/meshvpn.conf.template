@@ -20,7 +20,8 @@
   },
   "event_handlers": [
       "/opt/vyos-serf-vpn/bin/meshvpn.sh >> /opt/vyos-serf-vpn/log/meshvpn.log 2>&1",
-      "query=/opt/vyos-serf-vpn/bin/meshvpn.sh 2>&1 | grep VPNSTATUS"
+      "query=/opt/vyos-serf-vpn/bin/meshvpn.sh 2>&1 | grep VPNSTATUS",
+      "user:updatescripts=/opt/vyos-serf-vpn/bin/updatescripts.sh >> /opt/vyos-serf-vpn/log/update.log 2>&1"
   ]
 }
 

@@ -1,6 +1,8 @@
 #!/bin/bash
 # check inter vpn connection by serf query 
 
+source /opt/vyos-serf-vpn/bin/commonvars.sh
+
 while test 1
 do
 
