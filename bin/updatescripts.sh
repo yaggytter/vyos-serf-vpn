@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/vbash
 
 source /opt/vyos-serf-vpn/bin/commonvars.sh
 

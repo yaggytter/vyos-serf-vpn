@@ -8,8 +8,6 @@ sleep 30
 
 CONFFILE=/opt/vyos-serf-vpn/etc/meshvpn.conf
 
-source /opt/vyatta/etc/functions/script-template
-
 source ./getinfo.sh
 source ./getmaxvtinum.sh
 

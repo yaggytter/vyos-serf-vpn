@@ -5,8 +5,6 @@ source ./commonvars.sh
 
 DEBUG="$2"
 
-source /opt/vyatta/etc/functions/script-template
-
 export INSTANCEID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 export HOSTNAME=$(hostname)
 
